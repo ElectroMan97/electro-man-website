@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Electro Man | Mobile Electronic Repair</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #111;
+    color: white;
+}
+
+header {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+    url('https://images.unsplash.com/photo-1518779578993-ec3579fee39f');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+header h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    margin: 10px;
+    background-color: #00ffcc;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+}
+
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.services, .why {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.card {
+    background-color: #1c1c1c;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+footer {
+    background-color: #000;
+    padding: 40px 20px;
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Electro Man</h1>
+    <p>Fast & Reliable Mobile Electronic Repair — We Come To You!</p>
+    <a href="tel:4784882837" class="btn">Call Now</a>
+    <a href="mailto:electroman1197@gmail.com" class="btn">Email Us</a>
+</header>
+
+<section>
+    <h2>Our Repair Services</h2>
+    <div class="services">
+        <div class="card">📱 Phone Screen Repair</div>
+        <div class="card">🔋 Battery Replacement</div>
+        <div class="card">💻 Laptop & Computer Repair</div>
+        <div class="card">🎮 Game Console Repair</div>
+        <div class="card">📺 TV Diagnostics</div>
+        <div class="card">🔌 Charging Port Repair</div>
+    </div>
+</section>
+
+<section>
+    <h2>Why Choose Electro Man?</h2>
+    <div class="why">
+        <div class="card">✅ Mobile Service – We Come To You</div>
+        <div class="card">⚡ Fast Turnaround</div>
+        <div class="card">💰 Affordable Pricing</div>
+        <div class="card">🔍 Honest Diagnostics</div>
+        <div class="card">⭐ Quality Parts</div>
+        <div class="card">🤝 Friendly Local Service</div>
+    </div>
+</section>
+
+<section>
+    <h2>How It Works</h2>
+    <p>1️⃣ Contact Us → 2️⃣ Get a Free Quote → 3️⃣ We Come To You → 4️⃣ Device Fixed & Ready</p>
+</section>
+
+<section>
+    <h2>About Electro Man</h2>
+    <p>
+        Electro Man is a locally owned mobile electronic repair service dedicated to 
+        fast, reliable, and affordable repairs. We bring professional repair services 
+        directly to your home or business, saving you time and hassle.
+    </p>
+</section>
+
+<footer>
+    <h2>Need Your Device Fixed Today?</h2>
+    <p>📞 478-488-2837</p>
+    <p>✉️ electroman1197@gmail.com</p>
+    <p>© 2026 Electro Man | Mobile Electronic Repair</p>
+</footer>
+
+</body>
+</html>
