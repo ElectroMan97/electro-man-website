@@ -7,6 +7,53 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+    .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.product {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,255,204,0.2);
+}
+
+.product img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+#cart {
+    margin-top: 60px;
+    background: #141414;
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#cart button {
+    width: 100%;
+    margin-top: 15px;
+    background: #00ffcc;
+    padding: 15px;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 
 html {
     scroll-behavior: smooth;
@@ -211,6 +258,41 @@ footer p {
 
     </form>
 </section>
+    <section id="shop">
+    <h2>Shop Refurbished Devices</h2>
+
+    <div class="products">
+
+        <div class="product">
+            <img src="iphone.jpg" alt="Refurbished iPhone">
+            <h3>Refurbished iPhone 12</h3>
+            <p>$499</p>
+            <button onclick="addToCart('Refurbished iPhone 12', 49900)">Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="laptop.jpg" alt="Refurbished Laptop">
+            <h3>Refurbished Dell Laptop</h3>
+            <p>$399</p>
+            <button onclick="addToCart('Refurbished Dell Laptop', 39900)">Add to Cart</button>
+        </div>
+
+    </div>
+
+    <div id="cart">
+        <h3>Your Cart</h3>
+        <ul id="cart-items"></ul>
+        <p id="cart-total"></p>
+
+        <select id="delivery-option">
+            <option value="shipping">Shipping</option>
+            <option value="pickup">Local Pickup</option>
+        </select>
+
+        <button onclick="checkout()">Checkout</button>
+    </div>
+</section>
+
 
 <section>
     <h2>Why Choose Electro Man?</h2>
@@ -244,6 +326,46 @@ footer p {
     <p>✉️ electroman1197@gmail.com</p>
     <p>© 2026 Electro Man | Mobile Electronic Repair</p>
 </footer>
+    <script>
+let cart = [];
+
+function addToCart(name, price) {
+    cart.push({ name, price });
+    renderCart();
+}
+
+function renderCart() {
+    const cartItems = document.getElementById("cart-items");
+    const cartTotal = document.getElementById("cart-total");
+    cartItems.innerHTML = "";
+
+    let total = 0;
+
+    cart.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = `${item.name} - $${(item.price/100).toFixed(2)}`;
+        cartItems.appendChild(li);
+        total += item.price;
+    });
+
+    cartTotal.textContent = `Total: $${(total/100).toFixed(2)}`;
+}
+
+async function checkout() {
+    const delivery = document.getElementById("delivery-option").value;
+
+    const response = await fetch("/.netlify/functions/create-checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ cart, delivery })
+    });
+
+    const data = await response.json();
+    window.location.href = data.url;
+}
+</script>
+
 
 </body>
 </html>
+
